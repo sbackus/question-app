@@ -5,9 +5,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import Body from '../components/body'
 
 const Main = props => (
-  <div>Greetings {props.name}!</div>
+  <div>
+    {props.name}!
+    <Body />
+  </div>
 )
 
 Main.defaultProps = {
@@ -20,7 +24,7 @@ Main.propTypes = {
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Main name="React" />,
-    document.body.appendChild(document.createElement('div')),
+    <Main name='React' />,
+    document.body.appendChild(document.createElement('div'))
   )
 })
