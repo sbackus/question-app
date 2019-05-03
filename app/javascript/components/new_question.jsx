@@ -7,7 +7,7 @@ class NewQuestion extends React.Component {
   }
 
   handleClick () {
-    var text = this.textInputRef.current.value
+    const text = this.textInputRef.current.value
     this.textInputRef.current.value = ''
     fetch('/questions', {
       method: 'POST',

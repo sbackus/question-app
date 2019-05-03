@@ -15,7 +15,7 @@ class Body extends React.Component {
   }
 
   handleSubmit (question) {
-    var newState = this.state.questions.concat(question)
+    const newState = this.state.questions.concat(question)
     this.setState({ questions: newState })
   }
 
@@ -32,7 +32,7 @@ class Body extends React.Component {
   }
 
   removeQuestionClient (id) {
-    var newQuestions = this.state.questions.filter((question) => {
+    const newQuestions = this.state.questions.filter((question) => {
       return question.id !== id
     })
 
