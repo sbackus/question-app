@@ -21,10 +21,16 @@ class NewQuestion extends React.Component {
       .then((data) => { this.props.handleSubmit(data) })
   }
 
+  handleEnter (event) {
+    if (event.key === 'Enter') {
+      this.handleClick()
+    }
+  }
+
   render () {
     return (
       <>
-        <input ref={this.textInputRef} placeholder='what is your question' />
+        <input onKeyDown={(e) => this.handleEnter(e)} ref={this.textInputRef} placeholder='what is your question' />
         <button onClick={() => this.handleClick()}>Submit</button>
       </>
     )
