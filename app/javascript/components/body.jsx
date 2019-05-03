@@ -19,6 +19,25 @@ class Body extends React.Component {
     this.setState({ questions: newState })
   }
 
+  handleUpdate (question) {
+    fetch(`/questions/${question.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ question: question })
+    })
+      .then((response) => { return response.json() })
+      .then((data) => { this.updateQuestions(question) })
+  }
+
+  updateQuestions (question) {
+    var questions = this.state.questions.filter((q) => { return q.id !== question.id })
+    questions.push(question)
+
+    this.setState({ questions: questions })
+  }
 
   handleDelete (id) {
     fetch(`/questions/${id}`, {
@@ -43,7 +62,7 @@ class Body extends React.Component {
     return (
       <>
         <NewQuestion handleSubmit={(question) => this.handleSubmit(question)} />
-        <AllQuestions questions={this.state.questions} handleDelete={(id) => this.handleDelete(id)} />
+        <AllQuestions questions={this.state.questions} handleDelete={(id) => this.handleDelete(id)} onUpdate={(question) => this.handleUpdate(question)} />
       </>
     )
   }

@@ -4,27 +4,17 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import Body from '../components/body'
 
 const Main = props => (
   <div>
-    {props.name}!
     <Body />
   </div>
 )
 
-Main.defaultProps = {
-  name: 'David'
-}
-
-Main.propTypes = {
-  name: PropTypes.string
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Main name='React' />,
+    <Main />,
     document.body.appendChild(document.createElement('div'))
   )
 })
