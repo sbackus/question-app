@@ -19,11 +19,31 @@ class Body extends React.Component {
     this.setState({ questions: newState })
   }
 
+
+  handleDelete (id) {
+    fetch(`/questions/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((response) => { this.removeQuestionClient(id) })
+  }
+
+  removeQuestionClient (id) {
+    var newQuestions = this.state.questions.filter((question) => {
+      return question.id !== id
+    })
+
+    this.setState({ questions: newQuestions })
+  }
+
   render () {
     return (
       <>
         <NewQuestion handleSubmit={(question) => this.handleSubmit(question)} />
-        <AllQuestions questions={this.state.questions} />
+        <AllQuestions questions={this.state.questions} handleDelete={(id) => this.handleDelete(id)} />
       </>
     )
   }
