@@ -8,6 +8,7 @@ class NewQuestion extends React.Component {
 
   handleClick () {
     var text = this.textInputRef.current.value
+    this.textInputRef.current.value = ''
     console.log('The text value is ' + text)
     fetch('/questions', {
       method: 'POST',
@@ -21,10 +22,10 @@ class NewQuestion extends React.Component {
 
   render () {
     return (
-      <form>
+      <>
         <input ref={this.textInputRef} placeholder='what is your question' />
         <button onClick={() => this.handleClick()}>Submit</button>
-      </form>
+      </>
     )
   }
 }
