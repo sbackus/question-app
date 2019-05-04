@@ -25,7 +25,7 @@ development:
   <<: *default
   database: question-app_development
   username: postgres
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
   host: localhost
   port: 5432
 
@@ -63,7 +63,7 @@ test:
   <<: *default
   database: question-app_test
   username: postgres
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
   host: localhost
   port: 5432
 
