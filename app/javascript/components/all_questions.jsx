@@ -1,6 +1,10 @@
 import React from 'react'
 import Question from './question'
 
+const allQuestionStyle = {
+  margin: '15px'
+}
+
 class AllQuestions extends React.Component {
   handleDelete (id) {
     this.props.handleDelete(id)
@@ -13,7 +17,7 @@ class AllQuestions extends React.Component {
   render () {
     const questions = this.props.questions.map((question) => {
       return (
-        <div key={question.id}>
+        <div style={allQuestionStyle} key={question.id}>
           <Question question={question}
             handleDelete={() => this.handleDelete(question.id)}
             handleUpdate={(question) => this.onUpdate(question)}
@@ -23,9 +27,10 @@ class AllQuestions extends React.Component {
     })
 
     return (
-      <div>
+      <>
+        <h2> All Questions: </h2>
         {questions}
-      </div>
+      </>
     )
   }
 }

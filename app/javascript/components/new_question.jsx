@@ -30,7 +30,7 @@ class NewQuestion extends React.Component {
   render () {
     return (
       <>
-        <h2> Add a question: </h2>
+        <h2> Add a Question: </h2>
         <input onKeyDown={(e) => this.handleEnter(e)} ref={this.textInputRef} placeholder='what is your question' />
         <button onClick={() => this.handleClick()}>Submit</button>
       </>

@@ -20,16 +20,16 @@ class Question extends React.Component {
   render () {
     const text = this.state.editable
       ? <input type='text' ref={this.editRef} defaultValue={this.props.question.text} />
-      : <h3>{this.props.question.text}</h3>
+      : <h3 style={{display: 'inline', marginRight: '10px'}}>{this.props.question.text}</h3>
 
     return (
-      <div>
+      <>
         {text}
         <button onClick={() => this.props.handleDelete()}>Delete</button>
         <button onClick={() => this.handleEdit()}>
           {' '}{this.state.editable ? 'Submit' : 'Edit'}{' '}
         </button>
-      </div>
+      </>
     )
   }
 }
