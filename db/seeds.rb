@@ -5,4 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Question.create!(text: "What is your quest?")
+
+# run this to populate questions:
+# $ rails db:populate_questions_from_csv lib/questions.csv
