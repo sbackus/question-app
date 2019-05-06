@@ -25,6 +25,7 @@ class Question extends React.Component {
     return (
       <>
         {text}
+        <p> {this.props.question.answers[0].text} </ p>
         <button onClick={() => this.props.handleDelete()}>Delete</button>
         <button onClick={() => this.handleEdit()}>
           {' '}{this.state.editable ? 'Submit' : 'Edit'}{' '}

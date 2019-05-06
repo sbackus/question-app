@@ -14,6 +14,9 @@ This is a simple Rails & React app for managing questions and answers
 
 * Database creation
   rails bd:create
+  run this to populate questions:
+  $ rails db:populate_questions_from_csv lib/questions.csv
+
 
 * Database initialization
 
