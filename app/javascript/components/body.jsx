@@ -5,13 +5,25 @@ import NewQuestion from './new_question'
 class Body extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { questions: [] }
+    this.state = {
+      questions: [],
+      page: 1
+    }
+  }
+
+  getQuestions () {
+    fetch('/questions.json?page=' + this.state.page)
+      .then(response => response.json())
+      .then(data => this.setState({ questions: data }))
   }
 
   componentDidMount () {
-    fetch('/questions.json')
-      .then(response => response.json())
-      .then(data => this.setState({ questions: data }))
+    this.getQuestions()
+  }
+
+  getPage (increment) {
+    let newState = Math.max(1, this.state.page + increment)
+    this.setState({ page: newState }, () => this.getQuestions())
   }
 
   handleSubmit (question) {
@@ -62,7 +74,7 @@ class Body extends React.Component {
     return (
       <>
         <NewQuestion handleSubmit={(question) => this.handleSubmit(question)} />
-        <AllQuestions questions={this.state.questions} handleDelete={(id) => this.handleDelete(id)} onUpdate={(question) => this.handleUpdate(question)} />
+        <AllQuestions getPage={(i) => this.getPage(i)} questions={this.state.questions} handleDelete={(id) => this.handleDelete(id)} onUpdate={(question) => this.handleUpdate(question)} />
       </>
     )
   }

@@ -5,6 +5,11 @@ const allQuestionStyle = {
   margin: '15px'
 }
 
+const pageButtonStyle = {
+  color: 'blue',
+  margin: '10px'
+}
+
 class AllQuestions extends React.Component {
   handleDelete (id) {
     this.props.handleDelete(id)
@@ -30,6 +35,8 @@ class AllQuestions extends React.Component {
       <>
         <h2> All Questions: </h2>
         {questions}
+        <a style={pageButtonStyle} onClick={() => this.props.getPage(-1)} > Previous </a>
+        <a style={pageButtonStyle} onClick={() => this.props.getPage(1)} > Next </a>
       </>
     )
   }

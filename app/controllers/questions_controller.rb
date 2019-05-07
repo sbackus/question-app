@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions
   def index
-    @questions = Question.all
+    @questions = Question.paginate(page: params[:page])
     render json: @questions.to_json(include: :answers)
   end
 
