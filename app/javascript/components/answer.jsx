@@ -1,5 +1,10 @@
 import React from 'react'
 
+const answerStyle = {
+  display: 'inline-flex',
+  margin: '5px'
+}
+
 const trueAnswerStyle = {
   color: 'green'
 }
@@ -10,7 +15,7 @@ const distractorStyle = {
 
 function Answer (props) {
   return (
-    <div style={props.answer.distractor ? distractorStyle : trueAnswerStyle} key={props.answer.id}>
+    <div style={{ ...answerStyle, ...(props.answer.distractor ? distractorStyle : trueAnswerStyle) }} >
       <p> {props.answer.text} </p>
     </div>
   )

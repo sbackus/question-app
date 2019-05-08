@@ -4,7 +4,7 @@ import Answer from './answer'
 function AllAnswers (props) {
   const answers = props.answers.map((answer) => {
     return (
-      <Answer answer={answer} />
+      <Answer key={answer.id} answer={answer} />
     )
   })
 
