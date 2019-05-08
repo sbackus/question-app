@@ -15,7 +15,10 @@ class NewQuestion extends React.Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ text: text })
+      body: JSON.stringify({
+        text: text
+        // answers_attributes: [{ text: 'foo', distractor: false }, { text: 'bar', distractor: true }]
+      })
     })
       .then((response) => { return response.json() })
       .then((data) => { this.props.handleSubmit(data) })

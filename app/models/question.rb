@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
   has_many :answers, dependent: :delete_all
+  accepts_nested_attributes_for :answers
 
   def self.create_from_string(s)
     parts = s.split("|")
