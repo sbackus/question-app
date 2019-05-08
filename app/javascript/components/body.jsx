@@ -27,7 +27,7 @@ class Body extends React.Component {
   }
 
   handleSubmit (question) {
-    const newState = this.state.questions.concat(question)
+    const newState = [question].concat(this.state.questions)
     this.setState({ questions: newState })
   }
 
