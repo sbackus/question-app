@@ -1,4 +1,5 @@
 import React from 'react'
+import AllAnswers from './all_answers'
 
 class Question extends React.Component {
   constructor (props) {
@@ -25,7 +26,7 @@ class Question extends React.Component {
     return (
       <>
         {text}
-        <p> {this.props.question.answers[0].text} </ p>
+        <AllAnswers answers={this.props.question.answers} />
         <button onClick={() => this.props.handleDelete()}>Delete</button>
         <button onClick={() => this.handleEdit()}>
           {' '}{this.state.editable ? 'Submit' : 'Edit'}{' '}
