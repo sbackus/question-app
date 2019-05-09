@@ -32,4 +32,4 @@ To see it running go here: https://quiet-savannah-38806.herokuapp.com/
   * $ foreman start
   * in your browser go to localhost:5000
 
-- If you have any questions please email me at Samuel.Backus@gmail.com
+- If you have any questions or feedback please email me at Samuel.Backus@gmail.com

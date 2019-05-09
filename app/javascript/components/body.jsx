@@ -45,8 +45,7 @@ class Body extends React.Component {
   }
 
   updateQuestions (question) {
-    var questions = this.state.questions.filter((q) => { return q.id !== question.id })
-    questions.push(question)
+    const questions = this.state.questions.map(obj => obj.id === question.id ? question : obj)
 
     this.setState({ questions: questions })
   }
