@@ -4,7 +4,10 @@ import AllAnswers from './all_answers'
 class Question extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { editable: false }
+    this.state = {
+      editable: false,
+      answers: props.question.answers
+    }
     this.editRef = React.createRef()
   }
 
@@ -12,10 +15,17 @@ class Question extends React.Component {
     if (this.state.editable) {
       var id = this.props.question.id
       const newText = this.editRef.current.value
-      var question = { id: id, text: newText }
+      var question = { id: id, text: newText, answers_attributes: this.state.answers  }
       this.props.handleUpdate(question)
     }
     this.setState({ editable: !this.state.editable })
+  }
+
+  handleAnswerChange (event, oldAnswer) {
+    const newAnswer = { id: oldAnswer.id, text: event.target.value, distractor: oldAnswer.distractor }
+    this.setState((state) => ({
+      answers: state.answers.map((answer) => answer.id === oldAnswer.id ? newAnswer : answer)
+    }))
   }
 
   render () {
@@ -26,7 +36,10 @@ class Question extends React.Component {
     return (
       <>
         {text}
-        <AllAnswers answers={this.props.question.answers} />
+        <AllAnswers
+          editable={this.state.editable}
+          handleAnswerChange={(e, answer) => this.handleAnswerChange(e, answer)}
+          answers={this.state.answers} />
         <button onClick={() => this.props.handleDelete()}>Delete</button>
         <button onClick={() => this.handleEdit()}>
           {' '}{this.state.editable ? 'Submit' : 'Edit'}{' '}
