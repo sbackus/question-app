@@ -13,23 +13,23 @@ To see it running go here: https://quiet-savannah-38806.herokuapp.com/
 
 # Get it running locally
 ## Install gems and packages
-  run $ bundle install
-  run $ yarn install
+  * run $ bundle install
+  * run $ yarn install
 
 ## Database setup
-  see config/database.yml
-  create a postges user and export the password to an environment variable called  POSTGRES_PASSWORD
-  or
-  update database.yml to work with your local database
-  run $ rails bd:create
-  run $ rails db:migrate
-  run $ rails db:populate_questions_from_csv lib/questions.csv
+  * see config/database.yml
+  * create a postges user and export the password to an environment variable called  POSTGRES_PASSWORD
+  * or
+  * update database.yml to work with your local database
+  * run $ rails bd:create
+  * run $ rails db:migrate
+  * run $ rails db:populate_questions_from_csv lib/questions.csv
 
 ## run the ruby tests
-  $ rails test
+  * $ rails test
 
 ## start the server
-  $ foreman start
-  in your browser go to localhost:5000
+  * $ foreman start
+  * in your browser go to localhost:5000
 
-If you have any questions please email me at Samuel.Backus@gmail.com
+- If you have any questions please email me at Samuel.Backus@gmail.com
